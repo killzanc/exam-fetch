@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<style>
+    .info{
+    margin-bottom: 10px;
+}
+.card{
+    margin-bottom: 10px;
+}
+.item{
+    color: blue;
+}
+.item:hover{
+    color: gray;
+    cursor: pointer;
+}
+.post__info{
+    color: blue;
+}
+.post__info:hover{
+    color: gray;
+    cursor: pointer;
+}
+</style>
+
+    <h1 class="h1 text-center">Users API</h1>
+    <div class="row wrapper border">
+         <div class="users col-4 border">
+            <h3 class="h3">Users</h3>
+                <div id="users__info">Count of users: </div>
+                <!-- users JS -->
+        </div> 
+
+        <div class="posts col-4 border">
+            <h3 class="h3">Posts</h3>
+            <div id="info__post">Count of posts: </div>
+            <!-- posts JS -->
+        </div>
+
+        <div class="comments col-4 border">
+            <h3 class="h3">Comments</h3>
+            <div id="com__info">Count of comments: </div>
+            <!-- comment JS -->
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
