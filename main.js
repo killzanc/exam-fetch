@@ -1,6 +1,6 @@
-const list = document.querySelector('.users');
-const post = document.querySelector('.posts');
-const comment = document.querySelector('.comments');
+const list = document.querySelector('.wrap__us');
+const post = document.querySelector('.wrap__post');
+const comment = document.querySelector('.wrap__com');
 
 ;(async() => {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -56,14 +56,13 @@ const comment = document.querySelector('.comments');
 list.addEventListener('click', async(e) => {
     if (e.target.matches(".item")) {
         const id = e.target.dataset.id;
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userid=${id}`);
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
         const result = await response.json();
-
+        post.textContent = '';    
+        
         result.map(item => {
-
             info__post.textContent =`Count of posts: ${result.length}`;
             
-
             const postCard = document.createElement('div');
             postCard.setAttribute('class', 'card d-flex');
             post.appendChild(postCard);
@@ -77,25 +76,22 @@ list.addEventListener('click', async(e) => {
             const postText = document.createElement('h6');
             postText.textContent = `Post: ${item.body}`
             postCard.appendChild(postText);
-
+            
             console.log(result)
-
         });
     }
 });
-
-
 post.addEventListener('click', async(e) => {
     if(e.target.matches(".post__info")){
         const comId = e.target.dataset.id;
-        const responce = await fetch(`https:jsonplaceholder.typicode.com/comments?userid=${comId}`)
+        const responce = await fetch(`https:jsonplaceholder.typicode.com/comments?postId=${comId}`)
         const result = await responce.json();
+        comment.textContent = '';    
         
-
         result.map(item => {
             com__info.textContent =`Count of Comments: ${result.length}`;
-
-
+            
+            
             const comCard = document.createElement('div');
             comCard.setAttribute('class', 'card d-flex');
             comment.appendChild(comCard);
@@ -110,7 +106,7 @@ post.addEventListener('click', async(e) => {
             const comMail = document.createElement('span');
             comMail.classList.add('h6');
             comCard.appendChild(comMail);
-
+            
             const comLink = document.createElement('a');
             comLink.setAttribute('href', "#");
             comLink.textContent = `Email: ${item.email}`;
